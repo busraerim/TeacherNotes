@@ -23,10 +23,6 @@ class SignupVC: UIViewController {
     
     let pickerView = UIPickerView()
     var userTypeData: [String] = ["Öğretmen", "Öğrenci", "Veli"]
-    
-    var usernameMessageBool = false
-    var passwordControlBool = false
-    var passwordConfirmBool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +39,11 @@ class SignupVC: UIViewController {
     
     private func prepareTextFields() {
         let textFields: [UITextField] = [nameSurnameTextField, mailTextField, usernameTextField, passwordTextField, passwordConfirmTextField, userTypeTextField]
-        textFields.forEach {
-            $0.delegate = self
-        }
+        
+        textFields.enumerated().forEach({ index, textField in
+            textField.delegate = self
+            textField.tag = index + 1
+        })
         
         userTypeTextField.inputView = pickerView
     }
@@ -91,12 +89,12 @@ class SignupVC: UIViewController {
         userTypeTextField.text = userTypeData[selectedRow]
         userTypeTextField.resignFirstResponder()
     }
+    
     @IBAction func signupButtonTapped(_ sender: Any) {
-        let requiredFieldsFilled = !usernameMessageBool && !passwordControlBool && !passwordConfirmBool &&
-            !nameSurnameTextField.text!.isEmpty && !mailTextField.text!.isEmpty && !userTypeTextField.text!.isEmpty
+        let isBool = passwordTextField.text?.count ?? 0 < 6 || passwordConfirmTextField.text != passwordTextField.text || usernameTextField.text?.count ?? 0 < 4 || nameSurnameTextField.text?.count ?? 0 <= 0 || mailTextField.text?.count ?? 0 <= 0
         
-        if !requiredFieldsFilled {
-            showAlert(title: "Hata", message: "Lütfen ilgili alanları doldurunuz.")
+        if isBool == true {
+            showAlert(title: "Hata", message: "Lütfen ilgili alanları doldurunuz")
         }
     }
     
@@ -116,6 +114,10 @@ extension SignupVC: UITextFieldDelegate{
         }
         nextTextField.becomeFirstResponder()
         return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+          return textField != userTypeTextField
     }
 
     func textFieldDidChangeSelection(_ textField: UITextField) {

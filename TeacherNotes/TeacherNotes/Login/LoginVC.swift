@@ -30,6 +30,8 @@ class LoginVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSignUp"{
             let destinationVC = segue.destination as! SignupVC
+        }else if segue.identifier == "toHomeVC"{
+            let destinationVC = segue.destination as! Home
         }
     }
     
@@ -38,6 +40,7 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: Any) {
+        performSegue(withIdentifier: "toHomeVC", sender: nil)
     }
     
     private func gesture(){
@@ -48,20 +51,27 @@ class LoginVC: UIViewController {
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressImageView))
         isSecureTextIV.isUserInteractionEnabled = true
         isSecureTextIV.addGestureRecognizer(longPressGesture)
+        
+        let tapGestureKeyboard = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGestureKeyboard)
     }
     
     @objc func labelTapped() {
-           performSegue(withIdentifier: "toSignUp", sender: nil)
+       performSegue(withIdentifier: "toSignUp", sender: nil)
     }
     
     @objc func longPressImageView(sender: UILongPressGestureRecognizer) {
-            if sender.state == .began {
-                password.isSecureTextEntry = false
-            }else{
-                password.isSecureTextEntry = true
-            }
+        if sender.state == .began {
+            password.isSecureTextEntry = false
+        }else{
+            password.isSecureTextEntry = true
+        }
     }
     
+    @objc func hideKeyboard(){
+        view.endEditing(true)
+        scroll.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
 }
 
 
