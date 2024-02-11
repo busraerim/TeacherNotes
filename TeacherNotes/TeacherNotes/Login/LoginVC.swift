@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class LoginVC: UIViewController {
     
@@ -24,15 +26,15 @@ class LoginVC: UIViewController {
         userName.delegate = self
         password.delegate = self
         gesture()
-        prepareUI()
+//        prepareUI()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSignUp"{
             let destinationVC = segue.destination as! SignupVC
-        }else if segue.identifier == "toHomeVC"{
-            let destinationVC = segue.destination as! Home
-        }
+        }/*else if segue.identifier == "toHomeVC"{*/
+//            let destinationVC = segue.destination as! Home
+//        }
     }
     
     private func prepareUI(){
@@ -40,7 +42,33 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: Any) {
-        performSegue(withIdentifier: "toHomeVC", sender: nil)
+        if !userName.text!.isEmpty && !password.text!.isEmpty{
+            Auth.auth().signIn(withEmail: userName.text!, password: password.text!) { authDataResult, error in
+                if error != nil {
+                    self.showAlert(title: "Giriş başarısız", message: error!.localizedDescription)
+                } else {
+                    self.performSegue(withIdentifier: "toHomeVC", sender: nil)
+                    let userID = authDataResult?.user.uid
+                    let db = Firestore.firestore()
+                    let userRef = db.collection("UserRoles").document(userID!)
+
+                    userRef.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            if let role = document.data()?["role"] as? String {
+                                print("Kullanıcının rolü: \(role)")
+                            } else {
+                                print("Rol bulunamadı.")
+                            }
+                        } else {
+                            print("Belge bulunamadı veya okuma hatası: \(error?.localizedDescription ?? "")")
+                        }
+                    }
+                    print(userID ?? "boş geldi")
+                    }
+            }
+        }else {
+            showAlert(title: "Hata", message: "Kullanıcı adı ve şifre boş bırakılamaz.")
+        }
     }
     
     private func gesture(){
@@ -55,6 +83,14 @@ class LoginVC: UIViewController {
         let tapGestureKeyboard = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapGestureKeyboard)
     }
+    
+//    private func showAlert(title:String, message:String){
+//        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+//        let okButton = UIAlertAction(title: "Tamam", style: UIAlertAction.Style.cancel)
+//        
+//        alert.addAction(okButton)
+//        self.present(alert, animated: true)
+//    }
     
     @objc func labelTapped() {
        performSegue(withIdentifier: "toSignUp", sender: nil)

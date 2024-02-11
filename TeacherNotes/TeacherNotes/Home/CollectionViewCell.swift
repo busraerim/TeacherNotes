@@ -16,6 +16,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    
     }
     
     public func configure(image: String, title:String){

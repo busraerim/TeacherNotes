@@ -6,23 +6,25 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class SignupVC: UIViewController {
     
     @IBOutlet weak var nameSurnameTextField: UITextField!
     @IBOutlet weak var mailTextField: UITextField!
-    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordConfirmTextField: UITextField!
     @IBOutlet weak var userTypeTextField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var passwordControl: UILabel!
     @IBOutlet weak var passwordConfirm: UILabel!
-    @IBOutlet weak var usernameMessage: UILabel!
     @IBOutlet weak var signupButton: UIButton!
     
     let pickerView = UIPickerView()
     var userTypeData: [String] = ["Öğretmen", "Öğrenci", "Veli"]
+    var userID = ""
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +40,7 @@ class SignupVC: UIViewController {
     }
     
     private func prepareTextFields() {
-        let textFields: [UITextField] = [nameSurnameTextField, mailTextField, usernameTextField, passwordTextField, passwordConfirmTextField, userTypeTextField]
+        let textFields: [UITextField] = [nameSurnameTextField, mailTextField, passwordTextField, passwordConfirmTextField, userTypeTextField]
         
         textFields.enumerated().forEach({ index, textField in
             textField.delegate = self
@@ -54,24 +56,23 @@ class SignupVC: UIViewController {
     }
     
     private func prepareLabel(){
-        usernameMessage.text = "Kullanıcı adınız en az 3 karakterden oluşmalıdır."
         passwordControl.text = "Şifreniz en az 6 karakterden oluşmalıdır."
         passwordConfirm.text = "Şifreleriniz eşleşmiyor."
     }
-    
-    private func showAlert(title:String,message:String) {
-        let buttonOK = UIAlertAction(title: "Tamam", style: .cancel)
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(buttonOK)
-        self.present(alert, animated: true)
-    }
+//    
+//    private func showAlert(title:String,message:String) {
+//        let buttonOK = UIAlertAction(title: "Tamam", style: .cancel)
+//        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//        alert.addAction(buttonOK)
+//        self.present(alert, animated: true)
+//    }
     
     private func addToolBar(){
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
-        toolbar.setItems([doneButton], animated: false)
-        userTypeTextField.inputAccessoryView = toolbar
+        toolBar.setItems([doneButton], animated: false)
+        userTypeTextField.inputAccessoryView = toolBar
     }
     
     private func addGestures(){
@@ -88,13 +89,37 @@ class SignupVC: UIViewController {
         let selectedRow = pickerView.selectedRow(inComponent: 0)
         userTypeTextField.text = userTypeData[selectedRow]
         userTypeTextField.resignFirstResponder()
+        scrollView.setContentOffset(CGPoint(x:0, y:0), animated: true)
     }
     
     @IBAction func signupButtonTapped(_ sender: Any) {
-        let isBool = passwordTextField.text?.count ?? 0 < 6 || passwordConfirmTextField.text != passwordTextField.text || usernameTextField.text?.count ?? 0 < 4 || nameSurnameTextField.text?.count ?? 0 <= 0 || mailTextField.text?.count ?? 0 <= 0
+        let isBool = passwordTextField.text?.count ?? 0 < 6 || passwordConfirmTextField.text != passwordTextField.text || nameSurnameTextField.text?.count ?? 0 <= 0 || mailTextField.text?.count ?? 0 <= 0
         
         if isBool == true {
             showAlert(title: "Hata", message: "Lütfen ilgili alanları doldurunuz")
+        } else {
+            Auth.auth().createUser(withEmail: mailTextField.text!, password: passwordTextField.text!) { authDataResult, error in
+                if error != nil {
+                    self.showAlert(title: "Hata", message: error!.localizedDescription)
+                }else{
+                    self.userID = authDataResult!.user.uid
+                    self.saveUserRoleToFirestore(userID: self.userID, role: self.userTypeTextField.text!, nameSurname: self.nameSurnameTextField.text!)
+                    self.dismiss(animated: true)
+                }
+            }
+        }
+    }
+    
+    func saveUserRoleToFirestore(userID: String, role: String, nameSurname: String) {
+        let db = Firestore.firestore()
+        let userRef = db.collection("UserRoles").document(userID)
+        
+        userRef.setData(["role": role,"nameSurname": nameSurname]) { error in
+            if let error = error {
+                print("Firestore kaydı sırasında hata: \(error.localizedDescription)")
+            } else {
+                print("Firestore'a başarıyla kaydedildi.")
+            }
         }
     }
     
@@ -122,8 +147,6 @@ extension SignupVC: UITextFieldDelegate{
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
         switch textField {
-        case usernameTextField:
-            usernameMessage.isHidden = usernameTextField.text?.count ?? 0 >= 4
         case passwordTextField:
             passwordControl.isHidden = passwordTextField.text?.count ?? 0 >= 6
         case passwordConfirmTextField:

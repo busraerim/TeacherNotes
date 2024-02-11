@@ -11,8 +11,10 @@ class DetailVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var dataImage = ["","","","",""]
-    var dataTitle = ["1", "2", "3", "4"]
+    var dataImage: [String] = ["","","","","","","","","","","","","","","","","",""]
+    var dataTitle: [String] = ["","","","","","","","","","","","","","","","","",""]
+    
+    var data: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +30,7 @@ class DetailVC: UIViewController {
         collectionView.collectionViewLayout = layout
         layout.minimumLineSpacing = 20
         layout.minimumInteritemSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 20, bottom: 0, right: 20)
         collectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
         collectionView.register(CollectionReusableView.nib(), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionReusableView.identifier)
         collectionView.delegate = self
@@ -40,16 +42,18 @@ class DetailVC: UIViewController {
 
 
 extension DetailVC: UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        collectionView.deselectItem(at: indexPath, animated: true)
-//        performSegue(withIdentifier: "toDetailVC", sender: nil)
-//    }
-//    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "toDetilVC" {
-//            let destinationVC = segue.destination as! DetailVC
-//        }
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            collectionView.deselectItem(at: indexPath, animated: true)
+            performSegue(withIdentifier: "toAddNewVC", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAddNewVC" {
+            let destinationVC = segue.destination as! AddNewVC
+        }
+    }
 }
 
 extension DetailVC: UICollectionViewDataSource {
@@ -59,14 +63,23 @@ extension DetailVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
+        
         let image = dataImage[indexPath.row]
         let title = dataTitle[indexPath.row]
+        
+        if indexPath.row == 0 {
+            cell.iconImageView.layer.borderWidth = 0
+            cell.subtitleLabel.layer.borderWidth = 0
+            cell.subtitleLabel.backgroundColor = .clear
+        }
+        
         cell.configure(image: image, title: title)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionReusableView.identifier, for: indexPath)
+
         return header
     }
     
