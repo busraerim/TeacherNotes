@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="715"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bPH-Vp-Ga3">
-                                                <rect key="frame" x="30" y="275" width="333" height="120"/>
+                                                <rect key="frame" x="30" y="250" width="333" height="120"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kullanıcı adı giriniz" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ttL-DZ-2Pm" customClass="InputTextFields" customModule="TeacherNotes" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="333" height="50"/>
@@ -57,7 +57,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.33725491169999999" green="0.43137252329999998" blue="0.32941177490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" red="0.46666666870000001" green="0.57254904510000004" blue="0.59215688710000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="8II-QI-MZ9" secondAttribute="trailing" constant="8" id="AMS-lE-nYg"/>
                                                             <constraint firstItem="8II-QI-MZ9" firstAttribute="centerY" secondItem="Ftc-Pa-1lL" secondAttribute="centerY" id="B34-B9-XdO"/>
@@ -68,13 +68,13 @@
                                                         </constraints>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.33725491169999999" green="0.43137252329999998" blue="0.32941177490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.46666666870000001" green="0.57254904510000004" blue="0.59215688710000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </stackView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TeacHer NOTES" translatesAutoresizingMaskIntoConstraints="NO" id="12A-0O-K8X">
-                                                <rect key="frame" x="46.666666666666657" y="50" width="300" height="150"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TeacHer NOTES" translatesAutoresizingMaskIntoConstraints="NO" id="12A-0O-K8X">
+                                                <rect key="frame" x="46.666666666666657" y="30" width="300" height="190"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="300" id="5Oh-L5-pLE"/>
-                                                    <constraint firstAttribute="height" constant="150" id="vfR-zL-eCQ"/>
+                                                    <constraint firstAttribute="height" constant="190" id="vfR-zL-eCQ"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yeni hesap oluştur." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQa-jj-1Rt">
@@ -84,8 +84,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iR7-Qp-zhX">
-                                                <rect key="frame" x="121.66666666666669" y="430" width="150" height="50"/>
-                                                <color key="backgroundColor" red="0.24313727020000001" green="0.29803922770000002" blue="0.231372565" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <rect key="frame" x="121.66666666666669" y="405" width="150" height="50"/>
+                                                <color key="backgroundColor" red="0.86666667460000002" green="0.6549019814" blue="0.4588235021" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="4q5-fQ-IiV"/>
                                                     <constraint firstAttribute="height" constant="50" id="S6e-Dw-zCi"/>
@@ -105,21 +105,21 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.33725491169999999" green="0.43137252329999998" blue="0.32941177490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.46666666870000001" green="0.57254904510000004" blue="0.59215688710000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstItem="iR7-Qp-zhX" firstAttribute="centerX" secondItem="CNQ-wP-Ozs" secondAttribute="centerX" id="7Qh-2y-BrG"/>
                                             <constraint firstItem="iR7-Qp-zhX" firstAttribute="top" secondItem="bPH-Vp-Ga3" secondAttribute="bottom" constant="35" id="G3n-Zy-xbe"/>
                                             <constraint firstItem="12A-0O-K8X" firstAttribute="centerX" secondItem="CNQ-wP-Ozs" secondAttribute="centerX" id="Ih5-DL-sUf"/>
                                             <constraint firstItem="PQa-jj-1Rt" firstAttribute="centerX" secondItem="CNQ-wP-Ozs" secondAttribute="centerX" id="MDe-D3-gvQ"/>
-                                            <constraint firstItem="12A-0O-K8X" firstAttribute="top" secondItem="CNQ-wP-Ozs" secondAttribute="top" constant="50" id="NSF-yR-9YF"/>
+                                            <constraint firstItem="12A-0O-K8X" firstAttribute="top" secondItem="CNQ-wP-Ozs" secondAttribute="top" constant="30" id="NSF-yR-9YF"/>
                                             <constraint firstAttribute="bottom" secondItem="PQa-jj-1Rt" secondAttribute="bottom" constant="20" id="U8j-DY-mWg"/>
-                                            <constraint firstItem="bPH-Vp-Ga3" firstAttribute="top" secondItem="12A-0O-K8X" secondAttribute="bottom" constant="75" id="WCV-RW-x6G"/>
+                                            <constraint firstItem="bPH-Vp-Ga3" firstAttribute="top" secondItem="12A-0O-K8X" secondAttribute="bottom" constant="30" id="WCV-RW-x6G"/>
                                             <constraint firstItem="bPH-Vp-Ga3" firstAttribute="leading" secondItem="CNQ-wP-Ozs" secondAttribute="leading" constant="30" id="i7Z-52-jrf"/>
                                             <constraint firstAttribute="trailing" secondItem="bPH-Vp-Ga3" secondAttribute="trailing" constant="30" id="mT3-eH-xgp"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.33725491169999999" green="0.43137252329999998" blue="0.32941177490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.46666666870000001" green="0.57254904510000004" blue="0.59215688710000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="CNQ-wP-Ozs" firstAttribute="leading" secondItem="EDF-9h-XCL" secondAttribute="leading" id="CaI-Ds-jcy"/>
                                     <constraint firstAttribute="bottom" secondItem="CNQ-wP-Ozs" secondAttribute="bottom" id="PxP-x3-sth"/>
@@ -131,7 +131,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.33725491169999999" green="0.43137252329999998" blue="0.32941177490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.46666666870000001" green="0.57254904510000004" blue="0.59215688710000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EDF-9h-XCL" secondAttribute="trailing" id="odU-nQ-IBi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EDF-9h-XCL" secondAttribute="bottom" id="rUa-Wt-cKd"/>
@@ -943,7 +943,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="TeacHer NOTES" width="500" height="500"/>
+        <image name="TeacHer NOTES" width="1232" height="723"/>
         <image name="arrowshape.backward.fill" catalog="system" width="128" height="104"/>
         <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
         <image name="eye" catalog="system" width="128" height="79"/>
