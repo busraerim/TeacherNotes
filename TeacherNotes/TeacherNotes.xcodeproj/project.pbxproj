@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		431FFB2B2B8F78F000049977 /* AddLessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431FFB292B8F78F000049977 /* AddLessonCell.swift */; };
+		431FFB2C2B8F78F000049977 /* AddLessonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 431FFB2A2B8F78F000049977 /* AddLessonCell.xib */; };
 		432154C42B4D7DA600294BD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 432154C32B4D7DA600294BD7 /* GoogleService-Info.plist */; };
 		4331F13D2B5667B200695EFC /* MessagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4331F13C2B5667B200695EFC /* MessagesVC.swift */; };
 		4331F1402B56A67F00695EFC /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4331F13F2B56A67F00695EFC /* SettingsVC.swift */; };
@@ -98,6 +100,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		431FFB292B8F78F000049977 /* AddLessonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLessonCell.swift; sourceTree = "<group>"; };
+		431FFB2A2B8F78F000049977 /* AddLessonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddLessonCell.xib; sourceTree = "<group>"; };
 		432154C32B4D7DA600294BD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4331F13C2B5667B200695EFC /* MessagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesVC.swift; sourceTree = "<group>"; };
 		4331F13F2B56A67F00695EFC /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
@@ -254,6 +258,8 @@
 				433E596D2B57EDD8004B77C9 /* ModelSchedule.swift */,
 				433E596F2B57F2C4004B77C9 /* AddScheduleVC.swift */,
 				438F034B2B60FBA000F90EB3 /* AddLessonVC.swift */,
+				431FFB292B8F78F000049977 /* AddLessonCell.swift */,
+				431FFB2A2B8F78F000049977 /* AddLessonCell.xib */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -470,6 +476,7 @@
 				434F31132B4FCBA50069C123 /* TableViewCell.xib in Resources */,
 				432154C42B4D7DA600294BD7 /* GoogleService-Info.plist in Resources */,
 				43CFC97E2B4BD074007F82CD /* Assets.xcassets in Resources */,
+				431FFB2C2B8F78F000049977 /* AddLessonCell.xib in Resources */,
 				43CFC97C2B4BD072007F82CD /* Main.storyboard in Resources */,
 				4367F9162B4E93E40073DB35 /* CollectionViewCell.xib in Resources */,
 			);
@@ -485,6 +492,7 @@
 				43CFC98A2B4BD719007F82CD /* InputTextFields.swift in Sources */,
 				4367F9192B4ED70D0073DB35 /* CollectionReusableView.swift in Sources */,
 				43CFC98C2B4C2E90007F82CD /* SignupVC.swift in Sources */,
+				431FFB2B2B8F78F000049977 /* AddLessonCell.swift in Sources */,
 				434F31182B50062A0069C123 /* Model.swift in Sources */,
 				434F310F2B4FCAE20069C123 /* AddNewVC.swift in Sources */,
 				4331F1422B56B0EB00695EFC /* ScheduleVC.swift in Sources */,

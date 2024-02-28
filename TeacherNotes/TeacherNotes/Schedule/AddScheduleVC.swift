@@ -5,11 +5,6 @@
 //  Created by Büşra Erim on 17.01.2024.
 //
 
-/*
- Sayfaya scroll eklenecek.
- Eğer herhangi bir gün işaretlenmediyse ya da ders sayısı 0dan küçük girildiyse show alert
- */
-
 import UIKit
 
 class AddScheduleVC: UIViewController {
@@ -95,14 +90,18 @@ class AddScheduleVC: UIViewController {
         if numberOfLessonTextField.text!.count <= 0 {
            showAlert(title: "Hata", message: "İlgili alanları doldurunuz.")
         }else {
-//            self.numberofLesson = Int(numberOfLessonTextField.text)
+            for index in lessonArray {
+                if numberOfLessonTextField.text == String(index){
+                  self.numberofLesson = index
+                }
+            }
             performSegue(withIdentifier: "toAddLessonVC", sender: nil)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! AddLessonVC
-        destinationVC.numberofLesson = numberOfLessonTextField.text!
+        destinationVC.numberofLesson = numberofLesson
     }
     
     @objc func selectedCheck(_ sender: UITapGestureRecognizer){

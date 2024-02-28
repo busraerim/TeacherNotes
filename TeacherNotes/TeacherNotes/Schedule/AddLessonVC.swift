@@ -9,26 +9,46 @@ import UIKit
 
 class AddLessonVC: UIViewController {
     
-    var numberofLesson:String = ""
+    @IBOutlet weak var tableView: UITableView!
+    
+    var numberofLesson:Int = 0
+    var lessonStartTime: Date?
+    var lessonEndTime: Date?
+    var className: String = ""
+    var lessonName: String = ""
+    var checkBox: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        print(numberofLesson)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func prepareTableView(){
+        tableView.register(AddLessonCell.nib(), forCellReuseIdentifier: AddLessonCell.identifier)
+        tableView.delegate = self
+        tableView.dataSource = self
     }
-    */
 
     @IBAction func saveButtonTapped(_ sender: Any) {
         self.view.window!.rootViewController?.dismiss(animated: true)
+    }
+}
+
+
+extension AddLessonVC: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return numberofLesson
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
     }
 }
