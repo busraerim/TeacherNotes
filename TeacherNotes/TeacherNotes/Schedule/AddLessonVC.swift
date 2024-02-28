@@ -20,7 +20,8 @@ class AddLessonVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(numberofLesson)
+        prepareTableView()
+        setupTableViewFooter()
     }
     
     private func prepareTableView(){
@@ -28,10 +29,37 @@ class AddLessonVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    private func setupTableViewFooter() {
+        let footer = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
+        footer.backgroundColor = .clear
+        tableView.tableFooterView = footer
+        
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
+        header.backgroundColor = .clear
+        tableView.tableHeaderView = header
+        
+        let saveButton = UIButton()
+        configureSaveButton(saveButton, in: footer)
+    }
 
-    @IBAction func saveButtonTapped(_ sender: Any) {
+    
+    private func configureSaveButton(_ button: UIButton, in view: UIView) {
+        button.backgroundColor = UIColor(red: 0.39, green: 0.22, blue: 0.26, alpha: 1.00)
+        button.setTitle("Kaydet", for: .normal)
+        button.setTitleColor(UIColor(red: 0.92, green: 0.89, blue: 0.82, alpha: 1.00)
+                             , for: .normal)
+        button.frame = CGRect(x: 50, y: 15, width: view.frame.width - 100, height: 50)
+        button.layer.cornerRadius = 20
+        button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+        view.addSubview(button)
+    }
+
+    @objc func saveButtonTapped(_ sender: Any) {
         self.view.window!.rootViewController?.dismiss(animated: true)
     }
+    
+    
 }
 
 
@@ -45,10 +73,11 @@ extension AddLessonVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        <#code#>
+        return "Ders"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: AddLessonCell.identifier, for: indexPath) as! AddLessonCell
+        return cell
     }
 }

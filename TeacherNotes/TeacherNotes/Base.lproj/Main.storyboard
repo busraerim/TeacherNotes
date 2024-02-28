@@ -526,20 +526,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQy-6T-jfj">
-                                <rect key="frame" x="158" y="359" width="77" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Kaydet"/>
-                                <connections>
-                                    <action selector="saveButtonTapped:" destination="p0o-DB-KwY" eventType="touchUpInside" id="zHJ-oc-16U"/>
-                                </connections>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iVf-qP-jHT">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QIB-Iy-LIx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iVf-qP-jHT" firstAttribute="top" secondItem="QIB-Iy-LIx" secondAttribute="top" id="6OI-86-PyU"/>
+                            <constraint firstItem="QIB-Iy-LIx" firstAttribute="bottom" secondItem="iVf-qP-jHT" secondAttribute="bottom" id="KFQ-2e-tnP"/>
+                            <constraint firstItem="iVf-qP-jHT" firstAttribute="leading" secondItem="QIB-Iy-LIx" secondAttribute="leading" id="R0Q-o2-6zb"/>
+                            <constraint firstItem="QIB-Iy-LIx" firstAttribute="trailing" secondItem="iVf-qP-jHT" secondAttribute="trailing" id="bK1-WH-wta"/>
+                        </constraints>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="393" height="842"/>
+                    <connections>
+                        <outlet property="tableView" destination="iVf-qP-jHT" id="uG7-vF-SKE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sev-KL-e9g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -967,7 +971,7 @@
             <color red="0.37299999594688416" green="0.43500000238418579" blue="0.32199999690055847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextFields">
-            <color red="0.9179999828338623" green="0.88999998569488525" blue="0.81599998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.91764705882352937" green="0.8901960784313725" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="mainbackground">
             <color red="0.39215686274509803" green="0.2196078431372549" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
