@@ -94,6 +94,7 @@
 		43CFC9812B4BD074007F82CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43CFC97F2B4BD074007F82CD /* LaunchScreen.storyboard */; };
 		43CFC98A2B4BD719007F82CD /* InputTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFC9892B4BD719007F82CD /* InputTextFields.swift */; };
 		43CFC98C2B4C2E90007F82CD /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFC98B2B4C2E90007F82CD /* SignupVC.swift */; };
+		43DC187C2B8F19C600CBE234 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DC187B2B8F19C600CBE234 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +128,7 @@
 		43CFC9822B4BD074007F82CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43CFC9892B4BD719007F82CD /* InputTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextFields.swift; sourceTree = "<group>"; };
 		43CFC98B2B4C2E90007F82CD /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
+		43DC187B2B8F19C600CBE234 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				43CFC97A2B4BD072007F82CD /* Main.storyboard */,
+				43DC187A2B8F199700CBE234 /* Utils */,
 				434F31142B5005FC0069C123 /* Models */,
 				432154C22B4D24BE00294BD7 /* Signup */,
 				432154C12B4D24AE00294BD7 /* Login */,
@@ -329,6 +332,14 @@
 				43CFC9892B4BD719007F82CD /* InputTextFields.swift */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		43DC187A2B8F199700CBE234 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				43DC187B2B8F19C600CBE234 /* Colors.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,6 +492,7 @@
 				4367F9152B4E93E40073DB35 /* CollectionViewCell.swift in Sources */,
 				43CFC9792B4BD072007F82CD /* LoginVC.swift in Sources */,
 				438F034C2B60FBA000F90EB3 /* AddLessonVC.swift in Sources */,
+				43DC187C2B8F19C600CBE234 /* Colors.swift in Sources */,
 				4331F13D2B5667B200695EFC /* MessagesVC.swift in Sources */,
 				433E596E2B57EDD8004B77C9 /* ModelSchedule.swift in Sources */,
 				434F31122B4FCBA50069C123 /* TableViewCell.swift in Sources */,

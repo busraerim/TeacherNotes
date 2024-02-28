@@ -45,6 +45,13 @@ class AddScheduleVC: UIViewController {
         checkBoxArray.forEach({imageView in
             addTapGesture(to: imageView)
         })
+        days.enumerated().forEach({index, day in
+            if days[index] == selectedDay{
+                let selectedCheckBox = checkBoxArray[index]
+                selectedCheckBox.image = UIImage(systemName: "checkmark.square")
+                selectedCheckBox.tintColor = UIColor(red: 0.23, green: 0.30, blue: 0.22, alpha: 1.00)
+            }
+        })
     }
     
     private func addTapGesture(to imageView: UIImageView) {

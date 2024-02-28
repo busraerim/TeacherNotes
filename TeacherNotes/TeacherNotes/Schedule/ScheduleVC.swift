@@ -22,6 +22,7 @@ class ScheduleVC: UIViewController {
     var section : String?
     var lesson : String?
     var className: String?
+    var selectedDay: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,43 +56,49 @@ class ScheduleVC: UIViewController {
 
     
     private func configureSaveButton(_ button: UIButton, in view: UIView) {
-        button.backgroundColor = UIColor(red: 0.23, green: 0.30, blue: 0.22, alpha: 1.00)
+        button.backgroundColor = UIColor(red: 0.39, green: 0.22, blue: 0.26, alpha: 1.00)
         button.setTitle("Ders Ekle", for: .normal)
-        button.frame = CGRect(x: (view.frame.width - 150) / 2, y: 15, width: 150, height: 50)
+        button.frame = CGRect(x: 50, y: 15, width: view.frame.width - 100, height: 50)
         button.layer.cornerRadius = 20
         button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         view.addSubview(button)
     }
     
     @objc func saveButtonTapped(){
-        performSegue(withIdentifier: "toAddScheduleVC", sender: nil)
         switch daySegment.selectedSegmentIndex {
         case 0:
-            var day = "Pazartesi"
+            selectedDay = "Pazartesi"
         case 1:
-            var day = "Salı"
+            selectedDay = "Salı"
         case 2:
-            var day = "Çarşamba"
+            selectedDay = "Çarşamba"
         case 3:
-            var day = "Perşembe"
+            selectedDay = "Perşembe"
         case 4:
-            var day = "Cuma"
+            selectedDay = "Cuma"
         case 5:
-            var day = "Cumartesi"
+            selectedDay = "Cumartesi"
         case 6:
-            var day = "Pazar"
+            selectedDay = "Pazar"
         default:
             break
         }
+        performSegue(withIdentifier: "toAddScheduleVC", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddScheduleVC" {
             let destinationVC = segue.destination as! AddScheduleVC
             destinationVC.delegate = self
-            
+            if let selectedDay = self.selectedDay { destinationVC.selectedDay = selectedDay}
         }
     }
+    
+//    @IBAction func backClicked(_ sender: Any) {
+//        self.navigationController?.popViewController(animated: true)
+//    }
+//    
+//  
 }
 
 extension ScheduleVC: UITableViewDelegate {

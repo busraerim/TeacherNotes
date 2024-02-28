@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +20,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fe-AE-MzM">
                             <rect key="frame" x="30" y="10" width="140" height="112"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilphoto" translatesAutoresizingMaskIntoConstraints="NO" id="VHR-38-wJG">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noProfile" translatesAutoresizingMaskIntoConstraints="NO" id="VHR-38-wJG">
                                     <rect key="frame" x="20" y="6" width="100" height="100"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" id="NrM-57-aVC"/>
@@ -27,7 +28,7 @@
                                     </constraints>
                                 </imageView>
                             </subviews>
-                            <color key="backgroundColor" red="0.33725491169999999" green="0.43137252329999998" blue="0.32549020649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" name="mainbackground"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="140" id="Ip4-78-Ztb"/>
                                 <constraint firstItem="VHR-38-wJG" firstAttribute="centerY" secondItem="5fe-AE-MzM" secondAttribute="centerY" id="XlW-Da-VS7"/>
@@ -42,29 +43,30 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GdT-xo-ldO">
                             <rect key="frame" x="200" y="43.666666666666657" width="161" height="45"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="253" text="İsmail Turan" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLW-CP-yzr">
-                                    <rect key="frame" x="0.0" y="0.0" width="91" height="25"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="253" text="Ad Soyad" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLW-CP-yzr">
+                                    <rect key="frame" x="0.0" y="0.0" width="72" height="25"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="o77-Ei-bdm"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" red="0.24313727020000001" green="0.30196079609999998" blue="0.22745099660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="textColor" name="mainbackground"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Öğretmen" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxY-Ie-ItU">
-                                    <rect key="frame" x="0.0" y="30.000000000000007" width="61" height="15"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Kullanıcı Türü" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxY-Ie-ItU">
+                                    <rect key="frame" x="0.0" y="30.000000000000007" width="81" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="15" id="UTF-IN-aXF"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
-                                    <color key="textColor" red="0.33725491169999999" green="0.43137252329999998" blue="0.32549020649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="textColor" name="mainbackground"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
+                            <color key="tintColor" name="mainbackground"/>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" red="0.91764706370000004" green="0.89019608500000003" blue="0.8156862855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" name="TextFields"/>
                     <color key="tintColor" red="0.47450977560000002" green="0.56078433989999998" blue="0.4588235021" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstItem="GdT-xo-ldO" firstAttribute="centerY" secondItem="aTg-6V-toH" secondAttribute="centerY" id="7VD-Ur-piJ"/>
@@ -92,6 +94,12 @@
         </collectionReusableView>
     </objects>
     <resources>
-        <image name="profilphoto" width="500" height="500"/>
+        <image name="noProfile" width="500" height="500"/>
+        <namedColor name="TextFields">
+            <color red="0.9179999828338623" green="0.88999998569488525" blue="0.81599998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="mainbackground">
+            <color red="0.3919999897480011" green="0.2199999988079071" blue="0.2630000114440918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
