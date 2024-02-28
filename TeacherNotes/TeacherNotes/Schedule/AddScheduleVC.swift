@@ -29,15 +29,21 @@ class AddScheduleVC: UIViewController {
     var checkBoxArray:[UIImageView] = []
     var selectedDay:String = ""
     var days = ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"]
-    var isSelected = false
-
+    var pickerView = UIPickerView()
+    var lessonArray:[Int] = []
+    var numberofLesson: Int = 0
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        addToolBar()
     }
     
     private func configureUI(){
         prepareCheckBox()
+        preparePicker()
     }
     
     private func prepareCheckBox(){
@@ -54,6 +60,31 @@ class AddScheduleVC: UIViewController {
         })
     }
     
+    private func preparePicker() {
+        for index in 1...20 {
+            self.lessonArray.append(index)
+        }
+        numberOfLessonTextField.inputView = pickerView
+        pickerView.delegate = self
+        pickerView.dataSource = self
+    }
+    
+    private func addToolBar(){
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
+        toolBar.setItems([doneButton], animated: false)
+        numberOfLessonTextField.inputAccessoryView = toolBar
+    }
+    
+    @objc func doneButtonTapped(){
+        let selectedRow = pickerView.selectedRow(inComponent: 0)
+        numberOfLessonTextField.text = String(lessonArray[selectedRow])
+        numberOfLessonTextField.resignFirstResponder()
+        scrollView.setContentOffset(CGPoint(x:0, y:0), animated: true)
+    }
+    
+    
     private func addTapGesture(to imageView: UIImageView) {
        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectedCheck))
        imageView.isUserInteractionEnabled = true
@@ -61,9 +92,10 @@ class AddScheduleVC: UIViewController {
     }
     
     @IBAction func continueButtonTapped(_ sender: Any) {
-        if numberOfLessonTextField.text!.count <= 0 || isSelected == false{
+        if numberOfLessonTextField.text!.count <= 0 {
            showAlert(title: "Hata", message: "İlgili alanları doldurunuz.")
         }else {
+//            self.numberofLesson = Int(numberOfLessonTextField.text)
             performSegue(withIdentifier: "toAddLessonVC", sender: nil)
         }
     }
@@ -79,7 +111,6 @@ class AddScheduleVC: UIViewController {
             if selectedCheckBox == imageView {
                 imageView.image = UIImage(systemName: "checkmark.square")
                 selectedDay = days[index]
-                isSelected = true
             }else {
                 imageView.image = UIImage(systemName: "square")
             }
@@ -87,4 +118,23 @@ class AddScheduleVC: UIViewController {
         })
     }
 
+}
+
+
+extension AddScheduleVC: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return lessonArray.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(lessonArray[row])
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        numberOfLessonTextField.text =  String(lessonArray[row])
+    }
 }

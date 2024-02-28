@@ -581,7 +581,7 @@
                                                         </connections>
                                                     </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ders Sayısı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ace-VB-1BG">
-                                                        <rect key="frame" x="40" y="504.33333333333326" width="333" height="40"/>
+                                                        <rect key="frame" x="30" y="504.33333333333326" width="333" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="WR7-Qf-e5c"/>
                                                         </constraints>
@@ -748,13 +748,13 @@
                                                     <constraint firstItem="yxz-lS-gZi" firstAttribute="leading" secondItem="ZlZ-wC-Kb6" secondAttribute="leading" constant="20" id="B9M-KW-xcE"/>
                                                     <constraint firstItem="lBy-Lg-zBZ" firstAttribute="top" secondItem="ZlZ-wC-Kb6" secondAttribute="top" constant="100" id="Dic-PU-xTF"/>
                                                     <constraint firstItem="lBy-Lg-zBZ" firstAttribute="leading" secondItem="ZlZ-wC-Kb6" secondAttribute="leading" constant="20" id="KOY-MY-A8R"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ace-VB-1BG" secondAttribute="trailing" constant="30" id="NMr-dQ-lOH"/>
                                                     <constraint firstAttribute="bottom" secondItem="QNZ-to-LIp" secondAttribute="bottom" constant="170" id="NUd-Dc-m9q"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Ace-VB-1BG" secondAttribute="trailing" constant="20" symbolic="YES" id="QoR-AE-Whv"/>
                                                     <constraint firstAttribute="trailing" secondItem="yxz-lS-gZi" secondAttribute="trailing" constant="20" id="SAw-4r-97H"/>
+                                                    <constraint firstItem="Ace-VB-1BG" firstAttribute="leading" secondItem="ZlZ-wC-Kb6" secondAttribute="leading" constant="30" id="dXj-fN-IsC"/>
                                                     <constraint firstItem="QNZ-to-LIp" firstAttribute="leading" secondItem="ZlZ-wC-Kb6" secondAttribute="leading" constant="50" id="eSt-SM-veV"/>
                                                     <constraint firstItem="wkv-aD-Eav" firstAttribute="top" secondItem="lBy-Lg-zBZ" secondAttribute="bottom" constant="30" id="edG-lp-NRB"/>
                                                     <constraint firstItem="Ace-VB-1BG" firstAttribute="top" secondItem="yxz-lS-gZi" secondAttribute="bottom" constant="30" id="gm9-LA-Hxa"/>
-                                                    <constraint firstItem="Ace-VB-1BG" firstAttribute="leading" secondItem="ZlZ-wC-Kb6" secondAttribute="leading" constant="40" id="pFa-Sh-TGe"/>
                                                     <constraint firstAttribute="trailing" secondItem="QNZ-to-LIp" secondAttribute="trailing" constant="50" id="zXE-Wz-PV1"/>
                                                 </constraints>
                                             </view>
