@@ -97,6 +97,7 @@
 		43CFC98A2B4BD719007F82CD /* InputTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFC9892B4BD719007F82CD /* InputTextFields.swift */; };
 		43CFC98C2B4C2E90007F82CD /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFC98B2B4C2E90007F82CD /* SignupVC.swift */; };
 		43DC187C2B8F19C600CBE234 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DC187B2B8F19C600CBE234 /* Colors.swift */; };
+		43E27A372B90ABFF00B2612D /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E27A362B90ABFF00B2612D /* CheckBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +134,7 @@
 		43CFC9892B4BD719007F82CD /* InputTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextFields.swift; sourceTree = "<group>"; };
 		43CFC98B2B4C2E90007F82CD /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		43DC187B2B8F19C600CBE234 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		43E27A362B90ABFF00B2612D /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				43CFC9892B4BD719007F82CD /* InputTextFields.swift */,
+				43E27A362B90ABFF00B2612D /* CheckBox.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				436690D92B614C53005B0EC5 /* Extensions.swift in Sources */,
 				43CFC9772B4BD072007F82CD /* SceneDelegate.swift in Sources */,
 				433E59702B57F2C4004B77C9 /* AddScheduleVC.swift in Sources */,
+				43E27A372B90ABFF00B2612D /* CheckBox.swift in Sources */,
 				4367F9122B4E90230073DB35 /* Home.swift in Sources */,
 				4331F1402B56A67F00695EFC /* SettingsVC.swift in Sources */,
 			);

@@ -17,7 +17,9 @@ class AddLessonVC: UIViewController {
     var className: String = ""
     var lessonName: String = ""
     var checkBox: UIImage?
-
+    var titleHeader: [String] = []
+    var selectedCell: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareTableView()
@@ -69,15 +71,29 @@ extension AddLessonVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 1
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Ders"
+        for index in 1...numberofLesson{
+            titleHeader.append("\(index). ders")
+        }
+        return titleHeader[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AddLessonCell.identifier, for: indexPath) as! AddLessonCell
+        cell.delegate = self
         return cell
     }
+}
+
+
+extension AddLessonVC: AddLessonCellRowHeightDelegate {
+    func addLessonRowHeight(section: Int) {
+        selectedCell = section
+        
+    }
+    
+
 }
