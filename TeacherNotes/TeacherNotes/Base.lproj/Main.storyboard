@@ -546,7 +546,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sev-KL-e9g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1585" y="3129"/>
+            <point key="canvasLocation" x="-1585" y="2961"/>
         </scene>
         <!--Add ScheduleVC-->
         <scene sceneID="sJY-aa-wGG">
@@ -863,6 +863,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1AJ-LO-pMg" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="qi1-LT-QYO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorTransitionMaskImage="arrowshape.left.fill" catalog="system" id="3Mx-AI-n62">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -877,19 +878,19 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="mJZ-Oe-pBa"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="WlT-vF-5Vb"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ywa-tV-mHh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1381" y="-2"/>
+            <point key="canvasLocation" x="-1344" y="-2"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="iKH-jI-akA">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6Ig-8B-Dn0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="vfz-A4-1R9"/>
+                    <navigationItem key="navigationItem" id="BUH-YO-I2i"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dCd-Lt-uXa">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

@@ -10,13 +10,15 @@ import Firebase
 import FirebaseFirestore
 
 class Home: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var nameLabel:String = ""
     var userRole:String = ""
     var menu:[homePage] = []
-
+    var detailTitle: String = ""
+    var detailImage: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -64,26 +66,32 @@ class Home: UIViewController {
                     break
                 }
                 self.collectionView.reloadData()
-                }
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toScheduleVC" {
+            let destinationVC = segue.destination as! ScheduleVC
+        }else if segue.identifier == "toDetailVC" {
+            let destinationVC = segue.destination as! DetailVC
+            destinationVC.detailImage = self.detailImage
+            destinationVC.detailTitle = self.detailTitle
+        }
+    }
 }
 
 extension Home: UICollectionViewDelegate {
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         if indexPath.row == 0 {
             performSegue(withIdentifier: "toScheduleVC", sender: nil)
         }else{
+            self.detailTitle = menu[indexPath.row].title
+            self.detailImage = menu[indexPath.row].image
             performSegue(withIdentifier: "toDetailVC", sender: nil)
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDetilVC" {
-            let destinationVC = segue.destination as! DetailVC
-        }else if segue.identifier == "toScheduleVC" {
-            let destinatinationVC = segue.destination as! ScheduleVC
         }
     }
 }

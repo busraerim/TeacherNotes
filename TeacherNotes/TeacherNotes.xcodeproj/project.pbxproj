@@ -98,6 +98,8 @@
 		43CFC98C2B4C2E90007F82CD /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFC98B2B4C2E90007F82CD /* SignupVC.swift */; };
 		43DC187C2B8F19C600CBE234 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DC187B2B8F19C600CBE234 /* Colors.swift */; };
 		43E27A372B90ABFF00B2612D /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E27A362B90ABFF00B2612D /* CheckBox.swift */; };
+		43E6D7022B91BDB9000346E8 /* DetailCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E6D7002B91BDB9000346E8 /* DetailCollectionReusableView.swift */; };
+		43E6D7032B91BDB9000346E8 /* DetailCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43E6D7012B91BDB9000346E8 /* DetailCollectionReusableView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +137,8 @@
 		43CFC98B2B4C2E90007F82CD /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		43DC187B2B8F19C600CBE234 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		43E27A362B90ABFF00B2612D /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		43E6D7002B91BDB9000346E8 /* DetailCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionReusableView.swift; sourceTree = "<group>"; };
+		43E6D7012B91BDB9000346E8 /* DetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCollectionReusableView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				4367F91C2B4EDECC0073DB35 /* DetailVC.swift */,
+				43E6D7002B91BDB9000346E8 /* DetailCollectionReusableView.swift */,
+				43E6D7012B91BDB9000346E8 /* DetailCollectionReusableView.xib */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -314,15 +320,15 @@
 				43CFC97A2B4BD072007F82CD /* Main.storyboard */,
 				43DC187A2B8F199700CBE234 /* Utils */,
 				434F31142B5005FC0069C123 /* Models */,
-				432154C22B4D24BE00294BD7 /* Signup */,
 				432154C12B4D24AE00294BD7 /* Login */,
-				433E596C2B57ED95004B77C9 /* Schedule */,
+				432154C22B4D24BE00294BD7 /* Signup */,
 				432154C72B4D82EE00294BD7 /* Home */,
-				43CFC9882B4BD6BF007F82CD /* Controls */,
+				433E596C2B57ED95004B77C9 /* Schedule */,
 				4367F91B2B4EDEB40073DB35 /* Detail */,
 				4331F13B2B56679200695EFC /* Messages */,
 				4331F13E2B56A66C00695EFC /* Settings */,
 				434F310D2B4FCACD0069C123 /* AddNew */,
+				43CFC9882B4BD6BF007F82CD /* Controls */,
 				43CFC9742B4BD072007F82CD /* AppDelegate.swift */,
 				43CFC9762B4BD072007F82CD /* SceneDelegate.swift */,
 				43CFC97D2B4BD074007F82CD /* Assets.xcassets */,
@@ -474,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43CFC9812B4BD074007F82CD /* LaunchScreen.storyboard in Resources */,
+				43E6D7032B91BDB9000346E8 /* DetailCollectionReusableView.xib in Resources */,
 				4367F91A2B4ED70D0073DB35 /* CollectionReusableView.xib in Resources */,
 				433E596B2B57EB1A004B77C9 /* ScheduleTableViewCell.xib in Resources */,
 				434F31132B4FCBA50069C123 /* TableViewCell.xib in Resources */,
@@ -493,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43CFC98A2B4BD719007F82CD /* InputTextFields.swift in Sources */,
+				43E6D7022B91BDB9000346E8 /* DetailCollectionReusableView.swift in Sources */,
 				4367F9192B4ED70D0073DB35 /* CollectionReusableView.swift in Sources */,
 				43CFC98C2B4C2E90007F82CD /* SignupVC.swift in Sources */,
 				431FFB2B2B8F78F000049977 /* AddLessonCell.swift in Sources */,

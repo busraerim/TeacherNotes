@@ -102,6 +102,7 @@ class AddScheduleVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! AddLessonVC
         destinationVC.numberofLesson = numberofLesson
+        destinationVC.day = selectedDay
     }
     
     @objc func selectedCheck(_ sender: UITapGestureRecognizer){

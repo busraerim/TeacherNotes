@@ -19,6 +19,7 @@ class AddLessonVC: UIViewController {
     var checkBox: UIImage?
     var titleHeader: [String] = []
     var selectedCell: Int?
+    var day: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,15 +85,14 @@ extension AddLessonVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AddLessonCell.identifier, for: indexPath) as! AddLessonCell
         cell.delegate = self
+        cell.setupCell()
         return cell
     }
 }
 
 
 extension AddLessonVC: AddLessonCellRowHeightDelegate {
-    func addLessonRowHeight(section: Int) {
-        selectedCell = section
-        
+    func lessonData() {        
     }
     
 

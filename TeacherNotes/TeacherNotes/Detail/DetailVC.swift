@@ -7,14 +7,17 @@
 
 import UIKit
 
+
 class DetailVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var dataImage: [String] = ["","","","","","","","","","","","","","","","","",""]
-    var dataTitle: [String] = ["","","","","","","","","","","","","","","","","",""]
-    
+    var dataImage: [String] = ["addNew"]
+    var dataTitle: [String] = ["Yeni Ekle"]
+    var detailTitle: String = ""
+    var detailImage: String = ""
     var data: [String] = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,10 @@ class DetailVC: UIViewController {
         prepareCollectionView()
     }
     
+    internal func reloadData(){
+        collectionView.reloadData()
+    }
+    
     private func prepareCollectionView(){
         let layout = UICollectionViewFlowLayout()
         collectionView.collectionViewLayout = layout
@@ -32,7 +39,7 @@ class DetailVC: UIViewController {
         layout.minimumInteritemSpacing = 10
         layout.sectionInset = UIEdgeInsets(top: 10, left: 20, bottom: 0, right: 20)
         collectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
-        collectionView.register(CollectionReusableView.nib(), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionReusableView.identifier)
+        collectionView.register(DetailCollectionReusableView.nib(), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailCollectionReusableView.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -78,8 +85,8 @@ extension DetailVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionReusableView.identifier, for: indexPath)
-
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: DetailCollectionReusableView.identifier, for: indexPath) as! DetailCollectionReusableView
+//        header.configure(title: detailTitle, image: detailImage)
         return header
     }
     
@@ -95,3 +102,4 @@ extension DetailVC: UICollectionViewDelegateFlowLayout{
         return CGSize(width: (view.frame.width - 60) / 3, height: 150)
     }
 }
+

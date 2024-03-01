@@ -90,7 +90,7 @@
                 <outlet property="nameLabel" destination="lLW-CP-yzr" id="ns1-gm-wVA"/>
                 <outlet property="usertTypeLabel" destination="vxY-Ie-ItU" id="4qI-pM-Ccq"/>
             </connections>
-            <point key="canvasLocation" x="-35.877862595419849" y="48.591549295774648"/>
+            <point key="canvasLocation" x="79" y="46"/>
         </collectionReusableView>
     </objects>
     <resources>

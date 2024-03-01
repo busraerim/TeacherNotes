@@ -8,13 +8,14 @@
 import UIKit
 
 protocol AddLessonCellRowHeightDelegate {
-    func addLessonRowHeight(section: Int)
+    func lessonData()
 }
 
 class AddLessonCell: UITableViewCell {
     
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var checkBox: UIImageView!
+    var pickerView = UIPickerView()
     
     
     static let identifier = "AddLessonCell"
@@ -23,8 +24,11 @@ class AddLessonCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        addTapGesture()
-        getIndexPathForThisCell()
+        isSelectedCheckBox = false
+    }
+    
+    func setupCell() {
+//        addTapGesture()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,34 +39,51 @@ class AddLessonCell: UITableViewCell {
         return UINib(nibName: "AddLessonCell", bundle: nil)
     }
     
-    private func addTapGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectedCheck))
-        checkBox.isUserInteractionEnabled = true
-        checkBox.addGestureRecognizer(tapGesture)
+//    private func addTapGesture() {
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectedCheck))
+//        checkBox.isUserInteractionEnabled = true
+//        checkBox.addGestureRecognizer(tapGesture)
+//    }
+    
+    private func preparePicker() {
+        pickerView.delegate = self
+        pickerView.dataSource = self
     }
     
-    private func getIndexPathForThisCell() -> IndexPath? {
-        if let tableView = superview as? UITableView {
-            return tableView.indexPath(for: self)
-        }
-        return nil
+    
+    @IBAction func selectedButton(_ sender: Any) {
+        isSelectedCheckBox = !isSelectedCheckBox
+               if isSelectedCheckBox == true {
+                   stackView.isHidden = true
+                   delegate?.lessonData()
+               } else {
+                   stackView.isHidden = false
+               }
     }
     
-    @objc func selectedCheck(){
-        delegate?.addLessonRowHeight(section: getIndexPathForThisCell()!.section)
+//    @objc func selectedCheck(){
 //        isSelectedCheckBox = !isSelectedCheckBox
 //        if isSelectedCheckBox == true {
-//            
 //            checkBox.image = UIImage(systemName: "checkmark.square")
 //            stackView.isHidden = true
-//            delegate?.addLessonRowHeight()
+//            delegate?.lessonData()
 //        } else {
 //            checkBox.image = UIImage(systemName: "square")
 //            stackView.isHidden = false
 //        }
-    }
+//    }
 
     
 }
 
 
+extension AddLessonCell: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 5
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 5
+    }
+    
+}
