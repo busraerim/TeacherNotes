@@ -70,7 +70,7 @@ class SignupVC: UIViewController {
     private func addToolBar(){
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
+        let doneButton = UIBarButtonItem(title: "Tamam", style: UIBarButtonItem.Style.done, target: self, action: #selector(doneButtonTapped))
         toolBar.setItems([doneButton], animated: false)
         userTypeTextField.inputAccessoryView = toolBar
     }
