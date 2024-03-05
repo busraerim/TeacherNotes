@@ -22,6 +22,11 @@ class Home: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     private func configureUI() {
@@ -75,8 +80,8 @@ class Home: UIViewController {
             let destinationVC = segue.destination as! ScheduleVC
         }else if segue.identifier == "toDetailVC" {
             let destinationVC = segue.destination as! DetailVC
-            destinationVC.detailImage = self.detailImage
             destinationVC.detailTitle = self.detailTitle
+            destinationVC.detailImage = self.detailImage
         }
     }
 }
@@ -88,10 +93,12 @@ extension Home: UICollectionViewDelegate {
         collectionView.deselectItem(at: indexPath, animated: true)
         if indexPath.row == 0 {
             performSegue(withIdentifier: "toScheduleVC", sender: nil)
-        }else{
+        }else if indexPath.row == 1 || indexPath.row == 2{
             self.detailTitle = menu[indexPath.row].title
             self.detailImage = menu[indexPath.row].image
             performSegue(withIdentifier: "toDetailVC", sender: nil)
+        }else{
+            
         }
     }
 }
@@ -118,8 +125,6 @@ extension Home: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.size.width, height: view.frame.size.height/5)
     }
-    
-    
 }
 
 extension Home: UICollectionViewDelegateFlowLayout{

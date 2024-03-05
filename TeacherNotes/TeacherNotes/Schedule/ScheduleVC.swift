@@ -27,6 +27,8 @@ class ScheduleVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.title = VCTitles.ScheduleVc.rawValue
     }
     
     private func configureUI() {

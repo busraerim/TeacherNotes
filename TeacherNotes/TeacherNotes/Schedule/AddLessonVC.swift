@@ -52,7 +52,7 @@ class AddLessonVC: UIViewController {
         button.setTitle("Kaydet", for: .normal)
         button.setTitleColor(UIColor(red: 0.92, green: 0.89, blue: 0.82, alpha: 1.00)
                              , for: .normal)
-        button.frame = CGRect(x: 50, y: 15, width: view.frame.width - 100, height: 50)
+        button.frame = CGRect(x: 50, y: 15 , width: view.frame.width - 100, height: 50)
         button.layer.cornerRadius = 20
         button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         view.addSubview(button)
@@ -85,7 +85,6 @@ extension AddLessonVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AddLessonCell.identifier, for: indexPath) as! AddLessonCell
         cell.delegate = self
-        cell.setupCell()
         return cell
     }
 }

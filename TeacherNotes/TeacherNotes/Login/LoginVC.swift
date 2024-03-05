@@ -23,6 +23,7 @@ class LoginVC: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         userName.delegate = self
         password.delegate = self
         gesture()
@@ -30,7 +31,7 @@ class LoginVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toSignUp"{
+        if segue.identifier == StoryboardNames.toSignUpVC.rawValue{
             let destinationVC = segue.destination as! SignupVC
         }/*else if segue.identifier == "toHomeVC"{*/
 //            let destinationVC = segue.destination as! Home

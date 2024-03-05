@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ReloadDataDelegate {
+    func classreloadData(data: [String])
+}
+
 
 class DetailVC: UIViewController {
     
@@ -18,18 +22,16 @@ class DetailVC: UIViewController {
     var detailImage: String = ""
     var data: [String] = []
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.title = detailTitle
     }
     
     private func configureUI() {
         prepareCollectionView()
-    }
-    
-    internal func reloadData(){
-        collectionView.reloadData()
     }
     
     private func prepareCollectionView(){
@@ -39,26 +41,35 @@ class DetailVC: UIViewController {
         layout.minimumInteritemSpacing = 10
         layout.sectionInset = UIEdgeInsets(top: 10, left: 20, bottom: 0, right: 20)
         collectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
-        collectionView.register(DetailCollectionReusableView.nib(), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailCollectionReusableView.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-
-
+    
+    
 }
 
 
 extension DetailVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            collectionView.deselectItem(at: indexPath, animated: true)
-            performSegue(withIdentifier: "toAddNewVC", sender: nil)
+            if detailTitle == "Sınıflar" {
+                performSegue(withIdentifier: StoryboardNames.toAddNewClassVC.rawValue, sender: nil)
+            }else{
+                collectionView.deselectItem(at: indexPath, animated: true)
+                performSegue(withIdentifier: "toAddNewVC", sender: nil)
+            }
         }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddNewVC" {
             let destinationVC = segue.destination as! AddNewVC
+        }else if segue.identifier == StoryboardNames.toAddNewClassVC.rawValue {
+            let destinationVC = segue.destination as! AddNewClassVC
+            destinationVC.sheetPresentationController?.detents = [.medium()]
+            destinationVC.sheetPresentationController?.prefersGrabberVisible = true
+            destinationVC.delegate = self
         }
     }
 }
@@ -83,18 +94,6 @@ extension DetailVC: UICollectionViewDataSource {
         cell.configure(image: image, title: title)
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: DetailCollectionReusableView.identifier, for: indexPath) as! DetailCollectionReusableView
-//        header.configure(title: detailTitle, image: detailImage)
-        return header
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.size.width, height: view.frame.size.height/5)
-    }
-    
-    
 }
 
 extension DetailVC: UICollectionViewDelegateFlowLayout{
@@ -103,3 +102,13 @@ extension DetailVC: UICollectionViewDelegateFlowLayout{
     }
 }
 
+
+extension DetailVC: ReloadDataDelegate {
+    func classreloadData(data: [String]) {
+        for className in data{
+            dataTitle.append(className)
+            dataImage.append(detailImage)
+        }
+        collectionView.reloadData()
+    }
+}

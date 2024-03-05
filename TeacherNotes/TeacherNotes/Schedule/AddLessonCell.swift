@@ -14,7 +14,7 @@ protocol AddLessonCellRowHeightDelegate {
 class AddLessonCell: UITableViewCell {
     
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var checkBox: UIImageView!
+    @IBOutlet weak var checkBox: UIButton!
     var pickerView = UIPickerView()
     
     
@@ -26,10 +26,7 @@ class AddLessonCell: UITableViewCell {
         super.awakeFromNib()
         isSelectedCheckBox = false
     }
-    
-    func setupCell() {
-//        addTapGesture()
-    }
+
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -38,12 +35,6 @@ class AddLessonCell: UITableViewCell {
     static func nib() -> UINib {
         return UINib(nibName: "AddLessonCell", bundle: nil)
     }
-    
-//    private func addTapGesture() {
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectedCheck))
-//        checkBox.isUserInteractionEnabled = true
-//        checkBox.addGestureRecognizer(tapGesture)
-//    }
     
     private func preparePicker() {
         pickerView.delegate = self
@@ -55,25 +46,15 @@ class AddLessonCell: UITableViewCell {
         isSelectedCheckBox = !isSelectedCheckBox
                if isSelectedCheckBox == true {
                    stackView.isHidden = true
+                   checkBox.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
                    delegate?.lessonData()
                } else {
                    stackView.isHidden = false
+                   checkBox.setImage(UIImage(systemName: "square"), for: .normal)
+
                }
     }
-    
-//    @objc func selectedCheck(){
-//        isSelectedCheckBox = !isSelectedCheckBox
-//        if isSelectedCheckBox == true {
-//            checkBox.image = UIImage(systemName: "checkmark.square")
-//            stackView.isHidden = true
-//            delegate?.lessonData()
-//        } else {
-//            checkBox.image = UIImage(systemName: "square")
-//            stackView.isHidden = false
-//        }
-//    }
 
-    
 }
 
 
