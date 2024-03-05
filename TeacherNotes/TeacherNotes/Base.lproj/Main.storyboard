@@ -545,13 +545,12 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZlZ-wC-Kb6">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gün Seçiniz." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBy-Lg-zBZ">
-                                                        <rect key="frame" x="20" y="50" width="353" height="35"/>
-                                                        <color key="backgroundColor" name="TextFields"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Gün Seçiniz. " lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBy-Lg-zBZ">
+                                                        <rect key="frame" x="20.000000000000007" y="50" width="103.66666666666669" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="35" id="BVZ-vC-phZ"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="mainbackground"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -686,20 +685,20 @@
                                                             </stackView>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ders Sayısı Giriniz." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxz-lS-gZi">
-                                                        <rect key="frame" x="20" y="389.33333333333331" width="353" height="35"/>
-                                                        <color key="backgroundColor" name="TextFields"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Ders Sayısı Giriniz. " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxz-lS-gZi">
+                                                        <rect key="frame" x="20" y="389.33333333333331" width="149.33333333333334" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="35" id="WnA-cR-c49"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="mainbackground"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ders Sayısı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ace-VB-1BG">
-                                                        <rect key="frame" x="30" y="454.33333333333331" width="333" height="40"/>
+                                                        <rect key="frame" x="30" y="454.33333333333331" width="333" height="50"/>
+                                                        <color key="backgroundColor" name="TextFields"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="WR7-Qf-e5c"/>
+                                                            <constraint firstAttribute="height" constant="50" id="WR7-Qf-e5c"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -726,14 +725,12 @@
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="wkv-aD-Eav" firstAttribute="leading" secondItem="ZlZ-wC-Kb6" secondAttribute="leading" constant="40" id="3Cy-0x-W1L"/>
-                                                    <constraint firstAttribute="trailing" secondItem="lBy-Lg-zBZ" secondAttribute="trailing" constant="20" id="3py-zK-dgK"/>
                                                     <constraint firstItem="yxz-lS-gZi" firstAttribute="top" secondItem="wkv-aD-Eav" secondAttribute="bottom" constant="30" id="4Ma-dF-iFA"/>
                                                     <constraint firstItem="yxz-lS-gZi" firstAttribute="leading" secondItem="ZlZ-wC-Kb6" secondAttribute="leading" constant="20" id="B9M-KW-xcE"/>
                                                     <constraint firstItem="lBy-Lg-zBZ" firstAttribute="top" secondItem="ZlZ-wC-Kb6" secondAttribute="top" constant="50" id="Dic-PU-xTF"/>
                                                     <constraint firstItem="lBy-Lg-zBZ" firstAttribute="leading" secondItem="ZlZ-wC-Kb6" secondAttribute="leading" constant="20" id="KOY-MY-A8R"/>
                                                     <constraint firstAttribute="trailing" secondItem="Ace-VB-1BG" secondAttribute="trailing" constant="30" id="NMr-dQ-lOH"/>
                                                     <constraint firstAttribute="bottom" secondItem="QNZ-to-LIp" secondAttribute="bottom" constant="30" id="NUd-Dc-m9q"/>
-                                                    <constraint firstAttribute="trailing" secondItem="yxz-lS-gZi" secondAttribute="trailing" constant="20" id="SAw-4r-97H"/>
                                                     <constraint firstItem="Ace-VB-1BG" firstAttribute="leading" secondItem="ZlZ-wC-Kb6" secondAttribute="leading" constant="30" id="dXj-fN-IsC"/>
                                                     <constraint firstItem="QNZ-to-LIp" firstAttribute="leading" secondItem="ZlZ-wC-Kb6" secondAttribute="leading" constant="50" id="eSt-SM-veV"/>
                                                     <constraint firstItem="wkv-aD-Eav" firstAttribute="top" secondItem="lBy-Lg-zBZ" secondAttribute="bottom" constant="30" id="edG-lp-NRB"/>
@@ -777,6 +774,7 @@
                         <outlet property="numberOfLessonTextField" destination="Ace-VB-1BG" id="Gde-lF-BMA"/>
                         <outlet property="saturdayCheckBox" destination="GoE-Ii-e2o" id="Bqh-Zy-lge"/>
                         <outlet property="scrollView" destination="xkV-XY-U2l" id="Zaj-Su-jhG"/>
+                        <outlet property="selectDay" destination="lBy-Lg-zBZ" id="XsG-bg-mrX"/>
                         <outlet property="sundayCheckBox" destination="V7K-Qt-rUc" id="aHP-Sy-nFO"/>
                         <outlet property="thursdayCheckBox" destination="1Ak-o8-9rk" id="ibC-fH-C9k"/>
                         <outlet property="tuesdayCheckBox" destination="OxO-xf-yeC" id="yGW-Yf-OXa"/>

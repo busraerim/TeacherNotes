@@ -19,6 +19,7 @@ class AddScheduleVC: UIViewController {
     @IBOutlet weak var saturdayCheckBox: UIImageView!
     @IBOutlet weak var sundayCheckBox: UIImageView!
     @IBOutlet weak var numberOfLessonTextField: UITextField!
+    @IBOutlet weak var selectDay: UILabel!
     
     var delegate: GetScheduleData?
     var checkBoxArray:[UIImageView] = []
@@ -34,11 +35,20 @@ class AddScheduleVC: UIViewController {
         super.viewDidLoad()
         configureUI()
         addToolBar()
+        createLabel()
     }
     
     private func configureUI(){
         prepareCheckBox()
         preparePicker()
+    }
+
+    private func createLabel(){
+        let selectDaytext = "Gün seçiniz."
+        let textRange = NSRange(location: 0, length: selectDaytext.count)
+        let attiributedText = NSMutableAttributedString(string: selectDaytext)
+        attiributedText.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: textRange)
+        selectDay.attributedText = attiributedText
     }
     
     private func prepareCheckBox(){
