@@ -89,6 +89,10 @@ extension DetailVC: UICollectionViewDataSource {
             cell.iconImageView.layer.borderWidth = 0
             cell.subtitleLabel.layer.borderWidth = 0
             cell.subtitleLabel.backgroundColor = .clear
+        }else {
+            cell.iconImageView.layer.borderWidth = 0.5
+            cell.subtitleLabel.layer.borderWidth = 0.5
+            cell.subtitleLabel.backgroundColor = UIColor(named: "TextFields")
         }
         
         cell.configure(image: image, title: title)
