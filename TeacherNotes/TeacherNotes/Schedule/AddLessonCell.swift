@@ -7,26 +7,26 @@
 
 import UIKit
 
-protocol AddLessonCellRowHeightDelegate {
-    func lessonData()
-}
-
 class AddLessonCell: UITableViewCell {
     
+    @IBOutlet weak var startTim: UITextField!
+    @IBOutlet weak var endTime: UITextField!
+    @IBOutlet weak var className: UITextField!
+    @IBOutlet weak var lessonName: UITextField!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var checkBox: UIButton!
     var pickerView = UIPickerView()
-    
+    var lessonData: Schedule?
+
     
     static let identifier = "AddLessonCell"
     var isSelectedCheckBox = false
-    var delegate: AddLessonCellRowHeightDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         isSelectedCheckBox = false
     }
-
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -44,17 +44,15 @@ class AddLessonCell: UITableViewCell {
     
     @IBAction func selectedButton(_ sender: Any) {
         isSelectedCheckBox = !isSelectedCheckBox
-               if isSelectedCheckBox == true {
-                   stackView.isHidden = true
-                   checkBox.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
-                   delegate?.lessonData()
-               } else {
-                   stackView.isHidden = false
-                   checkBox.setImage(UIImage(systemName: "square"), for: .normal)
-
-               }
+        if isSelectedCheckBox == true {
+            stackView.isHidden = true
+            checkBox.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+        } else {
+            stackView.isHidden = false
+            checkBox.setImage(UIImage(systemName: "square"), for: .normal)
+        }
     }
-
+    
 }
 
 

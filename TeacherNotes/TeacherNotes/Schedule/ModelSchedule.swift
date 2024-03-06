@@ -8,11 +8,11 @@
 import Foundation
 
 struct Schedule{
-    var day:String
-    var time: String
-    var section : String
-    var lesson : String
-    var className: String
+    var day:String //gün kontrol
+    var time: String // başlama bitme
+    var section : String // kaçıncı ders
+    var lesson : String // ders adı
+    var className: String // sınıf
 }
 
 var sectionData:[Int] = []

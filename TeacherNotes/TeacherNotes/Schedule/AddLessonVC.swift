@@ -11,15 +11,18 @@ class AddLessonVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var numberofLesson:Int = 0
-    var lessonStartTime: Date?
-    var lessonEndTime: Date?
+    var numberofLesson:Int = 0 //dolu
+    var lessonStartTime: String = ""
+    var lessonEndTime: String = ""
     var className: String = ""
     var lessonName: String = ""
     var checkBox: UIImage?
     var titleHeader: [String] = []
     var selectedCell: Int?
-    var day: String = ""
+    var day: String = "" //dolu
+    var scheduleTime: [Schedule] = []
+    var delegate: GetScheduleData?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +48,7 @@ class AddLessonVC: UIViewController {
         let saveButton = UIButton()
         configureSaveButton(saveButton, in: footer)
     }
-
+    
     
     private func configureSaveButton(_ button: UIButton, in view: UIView) {
         button.backgroundColor = UIColor(red: 0.39, green: 0.22, blue: 0.26, alpha: 1.00)
@@ -57,9 +60,33 @@ class AddLessonVC: UIViewController {
         button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         view.addSubview(button)
     }
-
+    
     @objc func saveButtonTapped(_ sender: Any) {
-        self.view.window!.rootViewController?.dismiss(animated: true)
+        //cellin içindeki verileri alıp scheduleTime a ekle.
+        var allLessons = [Schedule]()
+        
+        for section in 0..<numberofLesson {
+            guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: section)) as? AddLessonCell else {
+                continue
+            }
+            
+            let startTime = cell.startTim.text ?? ""
+            let endTime = cell.endTime.text ?? ""
+            let className = cell.className.text ?? ""
+            let lessonName = cell.lessonName.text ?? ""
+            
+            if !cell.isSelectedCheckBox {
+                let lesson = Schedule(day: day, time: "\(startTime) - \(endTime)", section: "\(section). ders", lesson: lessonName, className: className)
+                allLessons.append(lesson)
+            }else{
+                let lesson = Schedule(day: day, time: "\(startTime) - \(endTime)", section: "\(section). ders", lesson: "Boş Ders", className: "-")
+                allLessons.append(lesson)
+            }
+        }
+        
+        scheduleTime = allLessons
+        self.view.window!.rootViewController?.dismiss(animated: true,
+                                                      completion: { self.delegate?.getData(data: self.scheduleTime) })
     }
     
     
@@ -84,15 +111,7 @@ extension AddLessonVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AddLessonCell.identifier, for: indexPath) as! AddLessonCell
-        cell.delegate = self
         return cell
     }
 }
 
-
-extension AddLessonVC: AddLessonCellRowHeightDelegate {
-    func lessonData() {        
-    }
-    
-
-}

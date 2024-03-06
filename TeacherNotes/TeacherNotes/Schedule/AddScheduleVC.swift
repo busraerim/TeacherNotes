@@ -111,6 +111,7 @@ class AddScheduleVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! AddLessonVC
+        destinationVC.delegate = delegate
         destinationVC.numberofLesson = numberofLesson
         destinationVC.day = selectedDay
     }

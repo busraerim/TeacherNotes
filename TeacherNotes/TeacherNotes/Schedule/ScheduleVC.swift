@@ -8,7 +8,7 @@
 import UIKit
 
 protocol GetScheduleData{
-    func getData(startTime:String, endTime:String, section:String, lesson:String, className:String)
+    func getData(data: [Schedule])
 }
 
 class ScheduleVC: UIViewController {
@@ -52,23 +52,23 @@ class ScheduleVC: UIViewController {
         header.backgroundColor = .clear
         tableView.tableHeaderView = header
         
-        let saveButton = UIButton()
-        configureSaveButton(saveButton, in: footer)
+        let addLesson = UIButton()
+        configureaddLessonButton(addLesson, in: footer)
     }
 
     
-    private func configureSaveButton(_ button: UIButton, in view: UIView) {
+    private func configureaddLessonButton(_ button: UIButton, in view: UIView) {
         button.backgroundColor = UIColor(red: 0.39, green: 0.22, blue: 0.26, alpha: 1.00)
         button.setTitle("Ders Ekle", for: .normal)
         button.setTitleColor(UIColor(red: 0.92, green: 0.89, blue: 0.82, alpha: 1.00)
                              , for: .normal)
         button.frame = CGRect(x: 50, y: 15, width: view.frame.width - 100, height: 50)
         button.layer.cornerRadius = 20
-        button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(addLessonButtonTapped), for: .touchUpInside)
         view.addSubview(button)
     }
     
-    @objc func saveButtonTapped(){
+    @objc func addLessonButtonTapped(){
         switch daySegment.selectedSegmentIndex {
         case 0:
             selectedDay = "Pazartesi"
@@ -123,12 +123,13 @@ extension ScheduleVC: UITableViewDataSource {
 }
 
 extension ScheduleVC: GetScheduleData{
-    func getData(startTime:String, endTime:String, section:String, lesson:String, className:String){
-        let time = "\(startTime)-\(endTime)"
-        let section = section
-        let lessonName = lesson
-        let className = className
-        scheduleTime.append(Schedule(day: "", time: time, section: section, lesson: lessonName, className: className))
+    func getData(data: [Schedule]){
+//        let time = "\(startTime)-\(endTime)"
+//        let section = section
+//        let lessonName = lesson
+//        let className = className
+//        scheduleTime.append(Schedule(day: "", time: time, section: section, lesson: lessonName, className: className))
+        scheduleTime = data
         tableView.reloadData()
     }
     

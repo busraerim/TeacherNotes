@@ -103,7 +103,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="checkBox" destination="vqc-Nn-non" id="EnF-OR-o2j"/>
-                <outlet property="stackView" destination="X3r-VX-CwF" id="8ad-ra-0S7"/>
+                <outlet property="className" destination="LjS-8Y-5pi" id="LWb-jN-lJh"/>
+                <outlet property="endTime" destination="PO0-eb-jZ1" id="pHA-US-mfK"/>
+                <outlet property="lessonName" destination="5Rm-IG-IpR" id="pXz-dy-XKu"/>
+                <outlet property="stackView" destination="c2O-UQ-FeQ" id="h7E-gk-EAo"/>
+                <outlet property="startTim" destination="cGl-6M-7V4" id="3yI-DE-fbt"/>
             </connections>
             <point key="canvasLocation" x="440" y="93"/>
         </tableViewCell>
