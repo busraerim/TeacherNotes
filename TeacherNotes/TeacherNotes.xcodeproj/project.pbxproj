@@ -7,16 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		431FFB2B2B8F78F000049977 /* AddLessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431FFB292B8F78F000049977 /* AddLessonCell.swift */; };
-		431FFB2C2B8F78F000049977 /* AddLessonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 431FFB2A2B8F78F000049977 /* AddLessonCell.xib */; };
 		432154C42B4D7DA600294BD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 432154C32B4D7DA600294BD7 /* GoogleService-Info.plist */; };
+		4331D8B92BA480EB008AE57B /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 4331D8B82BA480EB008AE57B /* TinyConstraints */; };
 		4331F13D2B5667B200695EFC /* MessagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4331F13C2B5667B200695EFC /* MessagesVC.swift */; };
 		4331F1402B56A67F00695EFC /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4331F13F2B56A67F00695EFC /* SettingsVC.swift */; };
 		4331F1422B56B0EB00695EFC /* ScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4331F1412B56B0EB00695EFC /* ScheduleVC.swift */; };
-		433E596A2B57EB1A004B77C9 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E59682B57EB1A004B77C9 /* ScheduleTableViewCell.swift */; };
-		433E596B2B57EB1A004B77C9 /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 433E59692B57EB1A004B77C9 /* ScheduleTableViewCell.xib */; };
-		433E596E2B57EDD8004B77C9 /* ModelSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E596D2B57EDD8004B77C9 /* ModelSchedule.swift */; };
-		433E59702B57F2C4004B77C9 /* AddScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E596F2B57F2C4004B77C9 /* AddScheduleVC.swift */; };
 		434F310F2B4FCAE20069C123 /* AddNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434F310E2B4FCAE20069C123 /* AddNewVC.swift */; };
 		434F31122B4FCBA50069C123 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434F31102B4FCBA50069C123 /* TableViewCell.swift */; };
 		434F31132B4FCBA50069C123 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 434F31112B4FCBA50069C123 /* TableViewCell.xib */; };
@@ -63,7 +58,9 @@
 		438F03462B5FD2D400F90EB3 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 438F03452B5FD2D400F90EB3 /* FirebaseRemoteConfigSwift */; };
 		438F03482B5FD2D400F90EB3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 438F03472B5FD2D400F90EB3 /* FirebaseStorage */; };
 		438F034A2B5FD2D400F90EB3 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 438F03492B5FD2D400F90EB3 /* FirebaseStorageCombine-Community */; };
-		438F034C2B60FBA000F90EB3 /* AddLessonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F034B2B60FBA000F90EB3 /* AddLessonVC.swift */; };
+		43BE098D2BA9BCCA005556EC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 43BE098C2BA9BCCA005556EC /* Kingfisher */; };
+		43BE09902BAC6AE3005556EC /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BE098E2BAC6AE3005556EC /* NoteTableViewCell.swift */; };
+		43BE09912BAC6AE3005556EC /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43BE098F2BAC6AE3005556EC /* NoteTableViewCell.xib */; };
 		43C268B92B59690E0053C487 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 43C268B82B59690E0053C487 /* FirebaseAnalytics */; };
 		43C268BB2B59690E0053C487 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 43C268BA2B59690E0053C487 /* FirebaseAnalyticsOnDeviceConversion */; };
 		43C268BD2B59690E0053C487 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 43C268BC2B59690E0053C487 /* FirebaseAnalyticsSwift */; };
@@ -104,16 +101,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		431FFB292B8F78F000049977 /* AddLessonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLessonCell.swift; sourceTree = "<group>"; };
-		431FFB2A2B8F78F000049977 /* AddLessonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddLessonCell.xib; sourceTree = "<group>"; };
 		432154C32B4D7DA600294BD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4331F13C2B5667B200695EFC /* MessagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesVC.swift; sourceTree = "<group>"; };
 		4331F13F2B56A67F00695EFC /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		4331F1412B56B0EB00695EFC /* ScheduleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleVC.swift; sourceTree = "<group>"; };
-		433E59682B57EB1A004B77C9 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
-		433E59692B57EB1A004B77C9 /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
-		433E596D2B57EDD8004B77C9 /* ModelSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSchedule.swift; sourceTree = "<group>"; };
-		433E596F2B57F2C4004B77C9 /* AddScheduleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleVC.swift; sourceTree = "<group>"; };
 		434F310E2B4FCAE20069C123 /* AddNewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewVC.swift; sourceTree = "<group>"; };
 		434F31102B4FCBA50069C123 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		434F31112B4FCBA50069C123 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -128,7 +119,8 @@
 		4367F9172B4ED70D0073DB35 /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
 		4367F9182B4ED70D0073DB35 /* CollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionReusableView.xib; sourceTree = "<group>"; };
 		4367F91C2B4EDECC0073DB35 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
-		438F034B2B60FBA000F90EB3 /* AddLessonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLessonVC.swift; sourceTree = "<group>"; };
+		43BE098E2BAC6AE3005556EC /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		43BE098F2BAC6AE3005556EC /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
 		43CFC9712B4BD072007F82CD /* TeacherNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeacherNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43CFC9742B4BD072007F82CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43CFC9762B4BD072007F82CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +143,7 @@
 				438F03402B5FD2D400F90EB3 /* FirebaseMessaging in Frameworks */,
 				43C268CB2B59690E0053C487 /* FirebaseDatabase in Frameworks */,
 				438F033A2B5FD2D400F90EB3 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
+				43BE098D2BA9BCCA005556EC /* Kingfisher in Frameworks */,
 				438F03182B5FD2D400F90EB3 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				43C268D92B59690E0053C487 /* FirebaseFunctionsCombine-Community in Frameworks */,
 				43C268D12B59690E0053C487 /* FirebaseFirestore in Frameworks */,
@@ -195,6 +188,7 @@
 				43C268C32B59690E0053C487 /* FirebaseAppDistribution-Beta in Frameworks */,
 				43C268C72B59690E0053C487 /* FirebaseAuthCombine-Community in Frameworks */,
 				43C268E52B59690E0053C487 /* FirebasePerformance in Frameworks */,
+				4331D8B92BA480EB008AE57B /* TinyConstraints in Frameworks */,
 				438F03262B5FD2D400F90EB3 /* FirebaseCrashlytics in Frameworks */,
 				43C268DD2B59690E0053C487 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				438F03302B5FD2D400F90EB3 /* FirebaseFirestoreCombine-Community in Frameworks */,
@@ -261,13 +255,8 @@
 			isa = PBXGroup;
 			children = (
 				4331F1412B56B0EB00695EFC /* ScheduleVC.swift */,
-				433E59682B57EB1A004B77C9 /* ScheduleTableViewCell.swift */,
-				433E59692B57EB1A004B77C9 /* ScheduleTableViewCell.xib */,
-				433E596D2B57EDD8004B77C9 /* ModelSchedule.swift */,
-				433E596F2B57F2C4004B77C9 /* AddScheduleVC.swift */,
-				438F034B2B60FBA000F90EB3 /* AddLessonVC.swift */,
-				431FFB292B8F78F000049977 /* AddLessonCell.swift */,
-				431FFB2A2B8F78F000049977 /* AddLessonCell.xib */,
+				43BE098E2BAC6AE3005556EC /* NoteTableViewCell.swift */,
+				43BE098F2BAC6AE3005556EC /* NoteTableViewCell.xib */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -452,6 +441,8 @@
 				438F03452B5FD2D400F90EB3 /* FirebaseRemoteConfigSwift */,
 				438F03472B5FD2D400F90EB3 /* FirebaseStorage */,
 				438F03492B5FD2D400F90EB3 /* FirebaseStorageCombine-Community */,
+				4331D8B82BA480EB008AE57B /* TinyConstraints */,
+				43BE098C2BA9BCCA005556EC /* Kingfisher */,
 			);
 			productName = TeacherNotes;
 			productReference = 43CFC9712B4BD072007F82CD /* TeacherNotes.app */;
@@ -483,6 +474,8 @@
 			mainGroup = 43CFC9682B4BD072007F82CD;
 			packageReferences = (
 				43C268B72B59690E0053C487 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				4331D8B72BA480EB008AE57B /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+				43BE098B2BA9BCCA005556EC /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 43CFC9722B4BD072007F82CD /* Products */;
 			projectDirPath = "";
@@ -500,13 +493,12 @@
 			files = (
 				43CFC9812B4BD074007F82CD /* LaunchScreen.storyboard in Resources */,
 				4367F91A2B4ED70D0073DB35 /* CollectionReusableView.xib in Resources */,
-				433E596B2B57EB1A004B77C9 /* ScheduleTableViewCell.xib in Resources */,
 				434F31132B4FCBA50069C123 /* TableViewCell.xib in Resources */,
 				432154C42B4D7DA600294BD7 /* GoogleService-Info.plist in Resources */,
 				43CFC97E2B4BD074007F82CD /* Assets.xcassets in Resources */,
-				431FFB2C2B8F78F000049977 /* AddLessonCell.xib in Resources */,
 				43CFC97C2B4BD072007F82CD /* Main.storyboard in Resources */,
 				4367F9162B4E93E40073DB35 /* CollectionViewCell.xib in Resources */,
+				43BE09912BAC6AE3005556EC /* NoteTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,28 +513,24 @@
 				4367F9192B4ED70D0073DB35 /* CollectionReusableView.swift in Sources */,
 				4352EBF02B9732DD003EF63A /* StoryboardNames.swift in Sources */,
 				43CFC98C2B4C2E90007F82CD /* SignupVC.swift in Sources */,
-				431FFB2B2B8F78F000049977 /* AddLessonCell.swift in Sources */,
 				4352EBF22B973D6F003EF63A /* VCTitles.swift in Sources */,
 				434F31182B50062A0069C123 /* Model.swift in Sources */,
 				434F310F2B4FCAE20069C123 /* AddNewVC.swift in Sources */,
 				4331F1422B56B0EB00695EFC /* ScheduleVC.swift in Sources */,
-				433E596A2B57EB1A004B77C9 /* ScheduleTableViewCell.swift in Sources */,
 				4367F9152B4E93E40073DB35 /* CollectionViewCell.swift in Sources */,
 				43CFC9792B4BD072007F82CD /* LoginVC.swift in Sources */,
-				438F034C2B60FBA000F90EB3 /* AddLessonVC.swift in Sources */,
 				43DC187C2B8F19C600CBE234 /* Colors.swift in Sources */,
 				4352EBED2B973254003EF63A /* AddNewClassVC.swift in Sources */,
 				4331F13D2B5667B200695EFC /* MessagesVC.swift in Sources */,
-				433E596E2B57EDD8004B77C9 /* ModelSchedule.swift in Sources */,
 				434F31122B4FCBA50069C123 /* TableViewCell.swift in Sources */,
 				4367F91D2B4EDECC0073DB35 /* DetailVC.swift in Sources */,
 				43CFC9752B4BD072007F82CD /* AppDelegate.swift in Sources */,
 				436690D92B614C53005B0EC5 /* Extensions.swift in Sources */,
 				43CFC9772B4BD072007F82CD /* SceneDelegate.swift in Sources */,
-				433E59702B57F2C4004B77C9 /* AddScheduleVC.swift in Sources */,
 				43E27A372B90ABFF00B2612D /* CheckBox.swift in Sources */,
 				4367F9122B4E90230073DB35 /* Home.swift in Sources */,
 				4331F1402B56A67F00695EFC /* SettingsVC.swift in Sources */,
+				43BE09902BAC6AE3005556EC /* NoteTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -769,6 +757,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4331D8B72BA480EB008AE57B /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.2;
+			};
+		};
+		43BE098B2BA9BCCA005556EC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
 		43C268B72B59690E0053C487 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -780,6 +784,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4331D8B82BA480EB008AE57B /* TinyConstraints */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4331D8B72BA480EB008AE57B /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			productName = TinyConstraints;
+		};
 		438F030B2B5FD13500F90EB3 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 43C268B72B59690E0053C487 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -939,6 +948,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 43C268B72B59690E0053C487 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		43BE098C2BA9BCCA005556EC /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 43BE098B2BA9BCCA005556EC /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		43C268B82B59690E0053C487 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

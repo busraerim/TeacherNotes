@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class AddNewClassVC: UIViewController {
     
@@ -43,6 +45,20 @@ class AddNewClassVC: UIViewController {
         classDegree.inputAccessoryView = toolBar
     }
     
+    func saveClassNameFirestore(className: String) {
+        let db = Firestore.firestore()
+        let userRef = db.collection("Classes").document()
+        
+        userRef.setData(["className": className]) {error in
+            if let error = error {
+                print("Firestore kaydı sırasında hata: \(error.localizedDescription)")
+            }else{
+                print("Firestore'a başarıyla kaydedildi.")
+            }
+        }
+
+    }
+    
     @objc func doneButtonTapped(){
         let selectedRow = pickerView.selectedRow(inComponent: 0)
         classDegree.text = String(classArray[selectedRow])
@@ -54,6 +70,7 @@ class AddNewClassVC: UIViewController {
         if classDegree.text?.isEmpty == true || className.text?.isEmpty == true{
             showAlert(title: "Hata", message: "Lütfen ilgili alanları doldurunuz.")
         }else{
+            saveClassNameFirestore(className: classDegree.text! + "-" + className.text!)
             classData.append(classDegree.text! + "-" + className.text!)
             self.dismiss(animated: true, completion: ({self.delegate?.classreloadData(data: self.classData)}))
         }

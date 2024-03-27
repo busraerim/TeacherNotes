@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 protocol ReloadDataDelegate {
     func classreloadData(data: [String])
@@ -15,6 +17,8 @@ protocol ReloadDataDelegate {
 class DetailVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    let db = Firestore.firestore()
     
     var dataImage: [String] = ["addNew"]
     var dataTitle: [String] = ["Yeni Ekle"]
@@ -44,7 +48,20 @@ class DetailVC: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-    
+//    
+//    private func getDataClass(){
+//        let userRef = db.collection("Classes").document()
+//        
+//        userRef.getDocument { (document, error) in
+//            if error != nil {
+//                print(error!.localizedDescription)
+//            }else{
+//                guard let className = document?.data()?["className"] as? String else { return print("Not found Class")}
+//                
+//                
+//            }
+//        }
+//    }
     
 }
 

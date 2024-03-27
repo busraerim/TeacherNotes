@@ -6,133 +6,157 @@
 //
 
 import UIKit
+import TinyConstraints
+import Firebase
+import FirebaseAuth
+import FirebaseStorage
+import FirebaseDatabase
+import Kingfisher
 
-protocol GetScheduleData{
-    func getData(data: [Schedule])
-}
 
 class ScheduleVC: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
-
-    @IBOutlet weak var daySegment: UISegmentedControl!
+    @IBOutlet weak var scheduleIV: UIImageView!
+    @IBOutlet weak var expandableStackView: UIStackView!
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var buttonsStackView: UIStackView!
+    @IBOutlet weak var noteTableView: UITableView!
+    @IBOutlet weak var expandableButton: UIButton!
     
-    var scheduleTime: [Schedule] = []
-    var inputData: GetDataSchedule?
-    var section : String?
-    var lesson : String?
-    var className: String?
-    var selectedDay: String?
+    var notes: [[String:String]] = []
+    let emptyNote = "Not yok"
+    var expanded: Bool = true
+    var textViewExpanded: Bool = true
+    
+    let firestoreDatabase = Firestore.firestore()
+    let userID = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.title = VCTitles.ScheduleVc.rawValue
+        configureUI()
+        getData()
+        configureTableView()
     }
     
-    private func configureUI() {
-        prepareTableView()
-        setupTableViewFooter()
+    private func configureUI(){
+        self.expandableStackView.arrangedSubviews[1].isHidden = expanded
+        self.expandableStackView.arrangedSubviews[2].isHidden = expanded
+        self.expandableStackView.arrangedSubviews[3].isHidden = expanded
+        self.buttonsStackView.arrangedSubviews[1].isHidden = textViewExpanded
+        expandableButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
     }
     
-    private func prepareTableView(){
-        let nib = UINib(nibName: "ScheduleTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "scheduleTableViewCell")
-        tableView.delegate = self
-        tableView.dataSource = self
+    private func configureTableView(){
+        noteTableView.register(NoteTableViewCell.nib(), forCellReuseIdentifier: NoteTableViewCell.identifier)
     }
     
-    private func setupTableViewFooter() {
-        let footer = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
-        footer.backgroundColor = .clear
-        tableView.tableFooterView = footer
-        
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
-        header.backgroundColor = .clear
-        tableView.tableHeaderView = header
-        
-        let addLesson = UIButton()
-        configureaddLessonButton(addLesson, in: footer)
-    }
-
-    
-    private func configureaddLessonButton(_ button: UIButton, in view: UIView) {
-        button.backgroundColor = UIColor(red: 0.39, green: 0.22, blue: 0.26, alpha: 1.00)
-        button.setTitle("Ders Ekle", for: .normal)
-        button.setTitleColor(UIColor(red: 0.92, green: 0.89, blue: 0.82, alpha: 1.00)
-                             , for: .normal)
-        button.frame = CGRect(x: 50, y: 15, width: view.frame.width - 100, height: 50)
-        button.layer.cornerRadius = 20
-        button.addTarget(self, action: #selector(addLessonButtonTapped), for: .touchUpInside)
-        view.addSubview(button)
-    }
-    
-    @objc func addLessonButtonTapped(){
-        switch daySegment.selectedSegmentIndex {
-        case 0:
-            selectedDay = "Pazartesi"
-        case 1:
-            selectedDay = "Salı"
-        case 2:
-            selectedDay = "Çarşamba"
-        case 3:
-            selectedDay = "Perşembe"
-        case 4:
-            selectedDay = "Cuma"
-        case 5:
-            selectedDay = "Cumartesi"
-        case 6:
-            selectedDay = "Pazar"
-        default:
-            break
-        }
-        performSegue(withIdentifier: "toAddScheduleVC", sender: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toAddScheduleVC" {
-            let destinationVC = segue.destination as! AddScheduleVC
-            destinationVC.delegate = self
-            if let selectedDay = self.selectedDay { destinationVC.selectedDay = selectedDay}
+    private func getData(){
+        firestoreDatabase.collection("UserRoles").document(self.userID!).getDocument(){(document,error) in
+            if error != nil {
+                self.showAlert(title: "Hata", message: error!.localizedDescription)
+            }else{
+                guard let scheduleImageURL = document?.data()?["imageURL"] as? String else {return self.scheduleIV.image = UIImage(named: "noSchedule")}
+                let url = URL(string: scheduleImageURL)
+                self.scheduleIV.kf.setImage(with: url)
+            }
         }
     }
     
-//    @IBAction func backClicked(_ sender: Any) {
-//        self.navigationController?.popViewController(animated: true)
-//    }
-//    
-//  
-}
-
-extension ScheduleVC: UITableViewDelegate {
-    
-}
-
-extension ScheduleVC: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return scheduleTime.count
+    @IBAction func tappedButton(_ sender: Any) {
+        expanded = !expanded
+        self.expandableStackView.arrangedSubviews[1].isHidden = self.expanded
+        if expandableButton.currentImage == UIImage(systemName: "chevron.down"){
+            expandableButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
+        }else{
+            expandableButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleTableViewCell", for: indexPath) as! ScheduleTableViewCell
-        cell.configure(time: scheduleTime[indexPath.row].time, section: scheduleTime[indexPath.row].section, className: scheduleTime[indexPath.row].className)
-        return cell
+    @IBAction func uploadButtonTapped(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = false
+        present(imagePicker, animated: true, completion: nil)
     }
     
-}
-
-extension ScheduleVC: GetScheduleData{
-    func getData(data: [Schedule]){
-//        let time = "\(startTime)-\(endTime)"
-//        let section = section
-//        let lessonName = lesson
-//        let className = className
-//        scheduleTime.append(Schedule(day: "", time: time, section: section, lesson: lessonName, className: className))
-        scheduleTime = data
-        tableView.reloadData()
+    @IBAction func takePhotoTapped(_ sender: Any) {
     }
     
+    @IBAction func addNewNoteButton(_ sender: Any) {
+        textViewExpanded = !textViewExpanded
+        self.expandableStackView.arrangedSubviews[2].isHidden = textViewExpanded
+        self.buttonsStackView.arrangedSubviews[1].isHidden = textViewExpanded
+    }
     
+    @IBAction func saveNoteButton(_ sender: Any) {
+        if textView.text.isEmpty {
+            showAlert(title: "Hata", message: "İlgili alanları doldurunuz.")
+        }else{
+            let index = notes.count
+            let note = textView.text
+            notes.append(["\(index+1). not":"note"])
+        }
+        
+    }
 }
 
+extension ScheduleVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[.originalImage] as? UIImage {
+            uploadImageToFirebase(image: pickedImage)
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func uploadImageToFirebase(image: UIImage) {
+        let storage = Storage.storage()
+        let storageReference = storage.reference()
+        
+        let scheduleFolder = storageReference.child("scheduleFolder")
+        
+        if let data = image.jpegData(compressionQuality: 0.5) {
+            let uuid = UUID().uuidString
+            let imageReference = scheduleFolder.child("\(uuid).jpeg")
+            imageReference.putData(data, metadata: nil) { (metadata, error) in
+                if error != nil {
+                    self.showAlert(title: "Hata", message: error?.localizedDescription ?? "Fotoğraf Yüklenemedi.")
+                } else {
+                    imageReference.downloadURL { (url, error) in
+                        if error == nil{
+                            let imageURL = url?.absoluteString
+                            if let imageURL = imageURL {
+                                let param = ["imageURL": imageURL] as [String:Any]
+                                self.firestoreDatabase.collection("UserRoles").document(self.userID!).setData(param, merge: true) {error in
+                                    if let error = error {
+                                        self.showAlert(title: "Hata", message: error.localizedDescription)
+                                    }else{
+                                        self.firestoreDatabase.collection("UserRoles").document(self.userID!).getDocument(){document, error in
+                                            if error != nil {
+                                                self.showAlert(title: "Hata", message: error!.localizedDescription)
+                                            }else if let document = document, document.exists, let scheduleImageURL = document.get("imageURL") as? String{
+                                                let url = URL(string: scheduleImageURL)
+                                                self.scheduleIV.kf.setImage(with: url)
+                                            }else{
+                                                print("Document does not exist")
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        } else {
+                            self.showAlert(title: "Hata", message: error?.localizedDescription ?? "Fotoğraf Yüklenemedi.")
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+}
